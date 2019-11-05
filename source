@@ -1,0 +1,931 @@
+<?php get_header(); ?>
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+  font-family: 'Share Tech', sans-serif;
+}
+
+#container {
+  min-height: 100vh;
+  display: flex;
+  height: auto;
+}
+
+.game-narrative {
+  margin: 0 auto; /* Center the item vertically & horizontally */
+  position: relative; /* Break it out of the regular flow */
+  top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
+  height: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  resize: both;
+  /* overflow: auto; */
+      margin-top: 20px !important;
+  max-width: 700px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.game-narrative-text {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 22px;
+  margin: 10px;
+  color: black;
+}
+
+.game-btn {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 2em;
+  margin: 20px;
+  
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #13B1A8;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+      width: 250px;
+}
+
+.game-btn:hover {
+  transition: .4s;
+  background-color: #1b948d;
+}
+
+.game-btn:focus {
+  outline:0;
+}
+
+.narrativeLink {
+  color: #17879c;
+  text-decoration: underline;
+}
+
+#narrative-three-btns {
+  display: flex;
+  flex-flow: row;
+}
+
+  #game-narrative-two, #game-narrative-five, #game-narrative-ten, #game-narrative-fourteen{
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/mobile-phone.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    height: 100vh;
+    width: 500px;
+  }
+
+  @media(max-width: 1000px){
+    #game-narrative-two, #game-narrative-five, #game-narrative-ten, #game-narrative-fourteen{
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/mobile-phone.jpg);
+    background-repeat: no-repeat;
+    padding-top: 45px !important;
+    height: auto;
+  }
+  }
+
+  .game-span-email {
+    background: rgba(196, 196, 196, 0.33);
+    border-radius: 30px;
+    padding: 10px;
+    width: 300px;
+    text-align: left;
+    color: #A4A4A4;
+}
+
+  .game-span-idade{
+  background: rgba(196, 196, 196, 0.33);
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+    color: #A4A4A4;
+  }
+
+  .consequencia{
+    display: none;
+  }
+
+.infinite-page-title-wrap.infinite-style-medium.infinite-left-align {
+    display: none;
+}
+
+.infinite-logo.infinite-item-pdlr {
+    display: none;
+}
+
+.infinite-navigation.infinite-item-pdlr.clearfix.infinite-navigation-submenu-indicator {
+    display: none;
+}
+
+footer#infinite-fixed-footer {
+    display: none;
+}
+
+form{
+  display: none;
+}
+
+div#infinite-mobile-header {
+    display: none;
+}
+
+#resultado{
+  position: relative;
+      height: auto;
+}
+  button.game-btn.narrative-thirteen-btn {
+    position: relative;
+}
+#game-narrative-one {
+    /* margin-top: 20px; */
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-10-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 100vh; */
+    background-size: contain;
+    /* height: 100vh; */
+    width: 100%;
+    margin: 0 auto;
+}
+  
+  #game-narrative-two {
+    /* margin-top: 20px; */
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-17.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 100vh; */
+    background-size: contain;
+    /* height: 100vh; */
+    width: 100%;
+    margin: 0 auto;
+}
+  
+  #game-narrative-five{
+  /* margin-top: 20px; */
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-13-1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 100vh; */
+    background-size: contain;
+    /* height: 100vh; */
+    width: 100%;
+    margin: 0 auto;
+}
+  
+  #game-narrative-ten{
+    /* margin-top: 20px; */
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-14-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 100vh; */
+    background-size: contain;
+    /* height: 100vh; */
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  #game-narrative-fourteen{
+      /* margin-top: 20px; */
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-16.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 100vh; */
+    background-size: contain;
+    /* height: 100vh; */
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .btns-narrative {
+    position: absolute;
+    bottom: 30px;
+  width: 100%;
+}
+  
+  @media(max-width: 768px){
+    .not-rev, .rev{
+      position: relative !important;
+    }
+	  
+	  
+
+.btns-narrative.btns-narrative-intro {
+    POSITION: relative;
+	MARGIN-TOP: 20PX;
+}
+
+    #game-narrative-three .btns-narrative, #game-narrative-eight .btns-narrative, #game-narrative-eleven .btns-narrative, #game-narrative-twelve .btns-narrative  {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+    
+    #game-narrative-six .btns-narrative {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+  }
+  
+  .speech-bubble {
+  position: relative;
+  background: #e8e8e8;;
+  border-radius: .4em;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 24px solid transparent;
+  border-top-color: #e8e8e8;;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -12px;
+  margin-bottom: -24px;
+}
+	.cinzou{
+		color: grey;
+	}
+  
+  .not-rev {
+    left: 0;
+    position: absolute;
+    width: 250px;
+    bottom: 20px;
+}
+  
+  .rev {
+    position: absolute;
+    right: 0;
+    width: 250px;
+    bottom: 20px;
+}
+
+  .speak{
+    background-image: url(http://gavz.com.br/wp-content/uploads/2019/10/Group-3.png);
+  }
+  
+  #game-narrative-four img{
+    max-width: 200px;
+    margin: 30px 0;
+  }
+  
+  .l2 {
+    display: inline-block;
+    width: 20%;
+}
+  
+  .l1 {
+    display: inline-block;
+    float: left;
+}
+  p{
+    text-align: left !important;
+  }
+  
+  img#bandeirinha {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+  
+  #bus {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    width: 200px;
+}
+  @media(max-width: 768px){
+    #bus{
+      position: relative !important;
+    }
+  }
+  
+    .corner-image.left {
+    width: 40%;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+  
+  .game-btn.narrative-thirteen-btn[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:-25px;
+   right:-150px;
+   font-size:.7em;
+   background:rgb(222, 72, 72);
+   color:white;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+   padding: 10;
+}
+  
+.game-btn.narrative-thirteen-btn[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -15px;
+    font-size: 9px;
+    right: 0;
+    /* font-size: .7em !important; */
+    font-size: 20px;
+    background: rgb(222, 72, 72);
+    color: white;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
+    padding: 3px 5px;
+}
+  
+  p#titulo-consequencia {
+    font-size: 21px;
+    margin: 40px 0px 20px 0px;
+    font-weight: bold;
+}
+input#seu-email {
+    width: 250px;
+    border-radius: 50px;
+    background-color: #e8e8e8;
+    height: 40px;
+    padding: 0 20px;
+}
+	.classe{
+		font-weight: bold;
+	}
+	
+	.forminho{
+		color: black;
+	}
+	a.forminho{
+		color: blue !important;
+		text-decoration: underline;
+	}
+	
+	#logo{
+		text-align: center;
+		width: 200px;
+	}
+</style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<div class="formulario-123">
+  <?php echo do_shortcode("[contact-form-7 id='11' title='JHPG']"); ?>
+</div>
+
+<div id="container">
+
+  
+  <div class="game-narrative" id="game-narrative-intro">
+	  <img src="http://gavz.com.br/wp-content/uploads/2019/10/xpzd.png" id="logo">
+ <h3 class="game-narrative-text"> Descubra que tipo de internauta você é.</h3>
+	  <br>
+    <p class="game-narrative-text"> Insira seu email para começar </p>
+    <input type="" name="" id="seu-email"  placeholder="Seu email">
+    <div class="btns-narrative btns-narrative-intro">
+    <button class="game-btn" id="narrative-intro-btn">COMEÇAR</button>
+    </div>
+  </div>
+
+
+  <div class="game-narrative" id="game-narrative-zero">
+    <p class="game-narrative-text"> Você acorda. Vê seu celular na cabeceira da cama e pega ele pra ver as mensagens que recebeu durante a noite.</p>
+    <p class="game-narrative-text">Você abre a conversa com seu amigo Roberval e manda um sticker engaçado.</p>
+    <div class="btns-narrative btns-narrative-zero">
+    <button class="game-btn" id="narrative-zero-btn">😂</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-one">
+    <div class="btns-narrative btns-narrative-one">
+    <button class="game-btn" id="narrative-one-btn">...</button>
+      </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-two">
+    <div class="btns-narrative btns-narrative-two">
+  <button class="game-btn narrative-two-btn not-rev" id="nao-fazer-o-teste not-rev">Não fazer o teste</button>
+    <button class="game-btn narrative-two-btn rev" id="colocar-o-email rev">Colocar o email</button>
+   </div>
+  </div>
+
+  <div class="game-narrative" id="game-narrative-three">
+    <p class="game-narrative-text"> Você levanta e vai no banheiro escovar os dentes. Quando chega lá, vê que sua pasta de dente já vai acabar.</p>
+    <p class="game-narrative-text">"E agora, José??? Vou ter que ir na farmácia comprar mais 😪” </p>
+    <p class="game-narrative-text"> Você se arruma e sai de casa. No caminho para a cafeteria, você passa por uma farmácia. Você decide entrar pra comprar a pasta de dente e mais uns remédios que estavam acabando.</p>
+    <p class="game-narrative-text"> Ao chegar no caixa, o funcionário te pergunta:</p>
+    <div class="game-narrative-text speech-bubble">
+      <span>Você quer informar seu CPF pra verificar se você tem algum desconto?</span>
+    </div>
+    <div class="btns-narrative btns-narrative-three">
+    <button class="game-btn narrative-three-btn not-rev">Precisa não</button>
+    <button class="game-btn narrative-three-btn rev">Claro, meu CPF é...</button>
+    </div>
+  </div>
+  
+   <div class="game-narrative" id="game-narrative-four">
+     <p class="game-narrative-text">  Você entra no carro e continua seu caminho para a cafeteria. Chegando lá, você senta na mesa que normalmente senta e diz:</p>
+     <p class="game-narrative-text">"Bom dia, Cássio! Tudo certo? Me vê o de sempre aí, por favor.”</p>
+     <p class="game-narrative-text">Você percebe que tem uma plaquinha nova do lado da porta que diz: “Agora nós temos WiFi!” Você pega seu celular pra conectar ao WiFi</p>
+     <img src="http://gavz.com.br/wp-content/uploads/2019/10/image-2.png">
+  <button class="game-btn narrative-four-btn">Pegar o celular</button>
+  </div>
+  
+   <div class="game-narrative" id="game-narrative-five">
+     <div class="btns-narrative btns-narrative-five">
+      <button class="game-btn narrative-five-btn not-rev">Não conectar</button>
+      <button class="game-btn narrative-five-btn rev">Fazer checkin</button>
+     </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-six">
+    <p class="game-narrative-text">Finalmente você chega no trabalho. Você mal senta na sua mesa e vê seu chefe se aproximando. Ele chega e diz:</p>
+    <p class="game-narrative-text">"Bom, dia! Eai, você trouxe as coxinhas pro aniversário do Roberval?”</p>  
+    <p class="game-narrative-text">"Claro que eu trouxe, chefe!”</p>
+    <div class="coxinha-container">
+    <div class="l1">
+      <p class="game-narrative-text">Você não tinha levado as coxinhas...</p>
+    </div>
+    <div class="l2">
+      <img src="http://gavz.com.br/wp-content/uploads/2019/10/image-5.png">
+    </div>    
+   </div>
+    <div class="btns-narrative btns-narrative-six">
+        <button class="game-btn narrative-six-btn">😳</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-seven">
+    <p class="game-narrative-text">Você tem que pensar rápido em algum jeito de comprar as coxinhas, senão vai dar ruim...</p>
+    <div class="btns-narrative btns-narrative-seven">
+    <button class="game-btn narrative-seven-btn not-rev">Ir na padaria</button>
+    <button class="game-btn narrative-seven-btn rev">Pedir online</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-eight">
+    <img src="http://gavz.com.br/wp-content/uploads/2019/10/bielzao1-festa.png" id="bandeirinha">
+    <p class="game-narrative-text"> O dia passa e é hora da tão esperada festa do Roberval.</p>
+      <p class="game-narrative-text"> No meio do fuzuê, Claudinha chega do seu lado e diz:</p>
+      <p class="game-narrative-text">"Mano olha isso aqui, um aplicativo que adivinha a sua idade! to chocada como funciona! baixa aí"</p>
+      <p class="game-narrative-text">
+         Você vê que no aplicativo você coloca uma foto da sua galeria e ele adivinha sua idade.
+      </p>
+    <div class="btns-narrative btns-narrative-eight">
+    <button class="game-btn narrative-eight-btn not-rev">Deixa pra lá</button>
+    <button class="game-btn narrative-eight-btn rev">Baixar o app</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-nine">
+    <p class="game-narrative-text">Você estava sem memória no celular mesmo. Claudinha, ainda animada com a brincadeira, tira uma foto sua e envia para o app. Ele exibe a sua idade:<p>
+    <p class="game-narrative-text">"Você tem 87 anos! 👵👴”<p>
+    <p class="game-narrative-text">“Poxa, que estranho, ele acertou de todo mundo aqui”, diz Claudinha<p>
+    <p class="game-narrative-text">Você pega o celular dela pra ver o que diabos esse app está pensando ao te chamar de vovô na cara dura.<p>
+    <button class="game-btn narrative-nine-btn">🤔</button>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-ten">
+<div class="btns-narrative btns-narrative-ten">
+    <button class="game-btn narrative-ten-btn not-rev">Deixa quieto</button>
+    <button class="game-btn narrative-ten-btn rev">Colocar idade</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-eleven">
+    <p class="game-narrative-text">A festa tava boa, mas você precisava ir embora. Você chega no seu carro e quando entra se lembra:</p>
+    <p class="game-narrative-text">“P U T S, tomei um copo de cerveja, não posso dirigir. Vou de uber.” </p>
+    <p class="game-narrative-text">Você vê o preço e tá 3x o preço normal.</p>
+    <p class="game-narrative-text">"Osh, ta loco, vou é de ônibus mesmo, dá em nada."</p>
+    <p class="game-narrative-text">Você vai até a parada mais próxima para pegar seu ônibus.</p>
+    
+    <button class="game-btn narrative-eleven-btn">🚌</button>
+    <img src="http://gavz.com.br/wp-content/uploads/2019/10/bielzao3-bus.png" id="bus">
+  </div>
+  
+<!-- 
+<div class="game-narrative" id="game-narrative-eleven">
+    <p class="game-narrative-text">A festa tava boa, mas você precisava ir embora. Você chega no seu carro e quando entra se lembra: </p>
+    <p class="game-narrative-text">“P U T S, tomei um copo de cerveja, não posso dirigir. Vou de uber.” </p>
+    <p class="game-narrative-text">Você vê o preço e tá 3x o preço normal. </p>
+    <p class="game-narrative-text">"Osh, ta loco, vou é de ônibus mesmo, dá em nada."</p>
+    <p class="game-narrative-text">Você vai até a parada mais próxima para pegar seu ônibus.</p>
+    <button class="game-btn narrative-eleven-btn">🚌</button>
+    <img src="http://gavz.com.br/wp-content/uploads/2019/10/bielzao3-bus.png" class="corner-image left">
+  </div> -->
+  
+  <div class="game-narrative" id="game-narrative-twelve">
+    <p class="game-narrative-text">Enquanto você espera, aparece uma senhora:</p>
+    <p class="game-narrative-text">
+      "Ola, meu anjo, eu trabalho na escola de inglês que fica ali na esquina. A gente tá fazendo um sorteio de bolsas pra próxima turma. Basta preencher esses dados aqui:”
+    </p>
+    
+    <div class="formulario-ingles">
+      <img src="http://gavz.com.br/wp-content/uploads/2019/10/bielzao4-ingles.png"id="img-form">
+    </div>
+    <div class="btns-narrative btns-narrative-twelve">
+    <button class="game-btn narrative-twelve-btn not-rev">Hoje não</button>
+    <button class="game-btn narrative-twelve-btn rev">Parece bom</button>
+    </div>
+  </div>
+  
+<!--   <div class="game-narrative" id="game-narrative-thirteen">
+    <p class="game-narrative-text">
+      Finalmente o ônibus chega e você vai pra casa. Chegando lá, você toma um banho e deita na cama. Decide dar uma última checada no celular antes de dormir e vê que recebeu uma mensagem há algumas horas atrás.
+    </p>
+    <button class="game-btn narrative-thirteen-btn">🚿 🛌 📱</button>
+  </div> -->
+  
+  <div class="game-narrative" id="game-narrative-thirteen">
+    <p class="game-narrative-text">Finalmente o ônibus chega e você vai pra casa.</p>
+    <p class="game-narrative-text">Chegando lá, você toma um banho e deita na cama.</p>
+    <p class="game-narrative-text">Decide dar uma última checada no celular antes de dormir e vê que recebeu uma mensagem há algumas horas atrás.</p>
+     <button class="game-btn narrative-thirteen-btn" data-badge="1">📱</button>
+  </div>
+  
+  <div class="game-narrative" id="game-narrative-fourteen">
+    <div class="btns-narrative btns-narrative-fourteen">
+    <button class="game-btn narrative-fourteen-btn not-rev">Ligar para o banco depois</button>
+    <button class="game-btn narrative-fourteen-btn rev">Resolver logo</button>
+    </div>
+  </div>
+  
+  <div class="game-narrative" id="resultado">
+   
+    <div>
+		<p class="game-narrative-text cinzou">
+			Descubra que tipo de internauta você é:
+		</p>
+		<br>
+		<br>
+      <p class="game-narrative-text classe">
+      
+    </p>
+
+    <p class="game-narrative-text descricao">
+
+    </p>
+    </div>
+  <p id="titulo-consequencia">
+    Essas foram as consequências das suas escolhas:
+    </p>
+    <p id="email" class="consequencia">
+      <b>Email:</b> Você acorda no dia seguinte e sua caixa de email está lotada. Pedidos de redefinição de senha, empréstimos de nova guiné, e promoções de coisas que você nem sabia que existia. Bom dia!
+    </p>
+    <p id="cpf" class="consequencia">
+      <b>CPF e Saúde:</b> Seu plano de saúde se ligou em seus problemas de saúde graças aos remédios comprados com desconto na farmácia e aumentou o preço. Parece que o barato saiu caro…
+    </p>
+    <p id="localizacao" class="consequencia">
+      <b>Localização:</b> No dia seguinte, quando você chega na cafeteria, você é assaltado. Estranho, parece que aqueles dois caras na moto sabiam exatamente onde você toma café.
+    </p>
+    <p id="workplace" class="consequencia">
+      <b>Local de trabalho:</b> Ao chegar no trabalho, você recebeu um cupom para o delivery de um restaurante que abriu ali perto. Parece que pedir aquelas coxinhas valeram a pena. Nice!
+    </p>
+    <p id="galeria" class="consequencia">
+     <b>Acesso à galeria:</b> Depois do almoço, você vê mais de 300 notificações no grupo da família no zapzap. Quando abre para verificar qual é o alvoroço, parece que aquele seu vídeo vomitando horrores no carnaval e depois plantando bananeira na ladeira de olinda é a nova sensação dos grupos. Você não sabe como, mas se arrepende de não ter deletado da galeria…
+    </p>
+    <p id="idade" class="consequencia">
+      <b>Idade:</b> Enquanto você trabalha, diversos anúncios de descontos em restaurantes, viagens, cursos superiores, festas, shows e até mesmo óculos aparecem estranhamente no seu navegador. Talvez fosse melhor ficar como um velho de 87 anos.
+    </p>
+    <p id="endereco" class="consequencia">
+      <b>Endereço:</b> Alguns dias depois, sua caixa de correio está gorda e entupida. Tem panfletos provavelmente de todos os estabelecimentos da cidade. Inclusive daquele curso de inglês. Do you speak it?
+    </p>
+    <p id="bank" class="consequencia">
+      <b>Dados Bancários:</b> Chegando em casa no fim do dia, você recebe uma notificação do seu banco: “Nós NÃO enviamos mensagens pedindo seus dados.”. Mas agora já é tarde demais. Várias outras notificações de compras feitas no seu cartão ate estourar seu limite… Acho que agora você vai ter que ligar pro banco…
+    </p>
+	  
+	  <p class="forminho">
+		  Responda esse formulário para ajudar na nosssa pesquisa.
+	  </p><a href="https://forms.gle/iBJK8e8XJU3au4rz7" class="forminho">Clique aqui</a>
+  </div>
+  
+</div>
+<?php get_footer(); ?>
+<script>
+
+var darkColor = "#2c3e50";
+
+var $narrativeIntro = $("#game-narrative-intro");
+var $narrativeZero = $("#game-narrative-zero");
+var $narrativeOne = $("#game-narrative-one");
+var $narrativeTwo = $("#game-narrative-two");
+var $narrativeThree = $("#game-narrative-three");
+var $narrativeFour = $("#game-narrative-four");
+var $narrativeFive = $("#game-narrative-five");
+var $narrativeSix = $("#game-narrative-six");
+var $narrativeSeven = $("#game-narrative-seven");
+var $narrativeEight = $("#game-narrative-eight");
+var $narrativeNine = $("#game-narrative-nine");
+var $narrativeTen = $("#game-narrative-ten");
+var $narrativeEleven = $("#game-narrative-eleven");
+var $narrativeTwelve = $("#game-narrative-twelve");
+var $narrativeThirteen = $("#game-narrative-thirteen");
+var $narrativeFourteen = $("#game-narrative-fourteen");
+var $narrativeFifteen = $("#game-narrative-fifteen");
+var $resultado = $("#resultado");
+var $identityBtn = $(".identity-cell");
+var $gameBtn = $(".game-cell");
+var $gameResetBtn = $("#game-reset-btn");
+
+$(document).ready(function() {
+  $narrativeIntro.hide();
+  $narrativeZero.hide();
+  $narrativeOne.hide();
+  $narrativeTwo.hide();
+  $narrativeThree.hide();
+  $narrativeFour.hide();
+  $narrativeFive.hide();
+  $narrativeSix.hide();
+  $narrativeSeven.hide();
+  $narrativeEight.hide(); 
+  $narrativeNine.hide(); 
+  $narrativeTen.hide();
+  $narrativeEleven.hide();
+  $narrativeTwelve.hide(); 
+  $narrativeThirteen.hide();
+  $narrativeFourteen.hide();
+  $resultado.hide();
+  $narrativeIntro.fadeIn(500);
+});
+
+
+  $("#narrative-intro-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeIntro.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeZero.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+}); 
+
+
+  $("#narrative-zero-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeZero.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeOne.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+}); 
+
+  $("#narrative-one-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeOne.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeTwo.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+  
+  
+
+$(".narrative-two-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeTwo.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeThree.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+
+
+  
+$(".narrative-three-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeThree.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeFour.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+
+
+
+$(".narrative-four-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeFour.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeFive.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-five-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeFive.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeSix.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-six-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeSix.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeSeven.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-seven-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeSeven.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeEight.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-eight-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeEight.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeNine.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-nine-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeNine.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeTen.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-ten-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeTen.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeEleven.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-eleven-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeEleven.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeTwelve.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-twelve-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeTwelve.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeThirteen.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-thirteen-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeThirteen.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    $narrativeFourteen.fadeIn(transitionPeriod);
+  }, transitionPeriod);
+});
+
+$(".narrative-fourteen-btn").on('click', function() {
+  var transitionPeriod = 500;
+  $narrativeFourteen.fadeOut(transitionPeriod);
+  setTimeout(function() {
+    
+   if(rev == 0){
+    $('.classe').html('O ANONYMOUS');
+    $('.descricao').html('Parabéns! Seja lá quem você for, onde quer que você esteja… Mas se eu pudesse dar um palpite: Mestre dos Magos. Você reconhece bem o valor dos seus dados e sabe como protegê-los. Você ri na cara do Zuckerberg.');
+   }
+    if(rev>0 && rev < 4){
+      $('.classe').html('O NINJA');
+    $('.descricao').html('Mal posso ver seus movimentos. Você consegue guardar bem suas informações e isso te protege da maioria dos perigos que existem na internet. Mas, sempre tem aquela coisinha ou outra que você deixa passar. Até mesmo o melhor ninja pode estar vulnerável as shurikens rouba-dados da internet.');
+    }
+    if(rev>=4 && rev < 7){
+      $('.classe').html('O RESERVADO');
+    $('.descricao').html('É, nada mal… parece o Power Ranger azul… não aparece tanto quanto o vermelho, nem tão pouco quanto o verde. O famoso nem fede nem cheira. Mas ainda tem muito o que melhorar. Você tem um pouco de cautela com os rastros que deixa na rede, mas muitas empresas ou pessoas mal intencionadas podem se aproveitar de você. Que tal rever as configurações de privacidade da sua rede social?');
+    }
+    
+    if(rev>=7){
+      $('.classe').html('NADA A ESCONDER');
+    $('.descricao').html('Só falta botar uma melancia na cabeça. Não conseguiria deixar de te perceber nem que eu quisesse. Cuidado! seus dados devem estar por toda a internet. As vezes vale a pena um pouco mais de discrição. Hoje em dia, dados são mercadoria. E os seus devem estar a preço de banana.');
+      
+    }
+
+    $("#formulario-submit").click();
+    $resultado.fadeIn(transitionPeriod);
+
+  }, transitionPeriod);
+});
+  
+var not_rev = 0;
+$(".not-rev").on('click', function(){
+  not_rev++;
+  console.log(not_rev);
+});
+  
+var rev = 0;
+$(".rev").on('click', function(){
+  rev++;
+  console.log(rev);
+});
+
+
+
+$("#narrative-intro-btn").on('click', function() {
+  $('input:text[name=pessoa]').val($("#seu-email").val());
+});
+
+$(".narrative-two-btn.rev").on('click', function() {
+  $('input:radio[name=email]')[0].checked = true;
+  $("#email").show();
+});
+
+$(".narrative-two-btn.not-rev").on('click', function() {
+  $('input:radio[name=email]')[1].checked = true;
+});
+
+$(".narrative-three-btn.rev").on('click', function() {
+  $('input:radio[name=cpf]')[0].checked = true;
+  $("#cpf").show();
+});
+
+$(".narrative-three-btn.not-rev").on('click', function() {
+  $('input:radio[name=cpf]')[1].checked = true;
+});
+
+$(".narrative-five-btn.rev").on('click', function() {
+  $('input:radio[name=localizacao]')[0].checked = true;
+  $("#localizacao").show();
+});
+
+$(".narrative-five-btn.not-rev").on('click', function() {
+  $('input:radio[name=localizacao]')[1].checked = true;
+});
+
+$(".narrative-seven-btn.rev").on('click', function() {
+  $('input:radio[name=workplace]')[0].checked = true;
+  $("#workplace").show();
+});
+
+$(".narrative-seven-btn.not-rev").on('click', function() {
+  $('input:radio[name=workplace]')[1].checked = true;
+});
+  
+$(".narrative-eight-btn.rev").on('click', function() {
+  $('input:radio[name=galeria]')[0].checked = true;
+  $("#galeria").show();
+});
+
+$(".narrative-eight-btn.not-rev").on('click', function() {
+  $('input:radio[name=galeria]')[1].checked = true;
+});
+  
+$(".narrative-ten-btn.rev").on('click', function() {
+  $('input:radio[name=idade]')[0].checked = true;
+  $("#idade").show();
+});
+
+$(".narrative-ten-btn.not-rev").on('click', function() {
+  $('input:radio[name=idade]')[1].checked = true;
+});
+  
+$(".narrative-twelve-btn.rev").on('click', function() {
+  $('input:radio[name=endereco]')[0].checked = true;
+  $("#endereco").show();
+});
+
+$(".narrative-twelve-btn.not-rev").on('click', function() {
+  $('input:radio[name=endereco]')[1].checked = true;
+});
+  
+$(".narrative-fourteen-btn.rev").on('click', function() {
+  $('input:radio[name=bank]')[0].checked = true;
+  $("#bank").show();
+});
+
+$(".narrative-fourteen-btn.not-rev").on('click', function() {
+  $('input:radio[name=bank]')[1].checked = true;
+});
+  
+
+
+
+</script>
